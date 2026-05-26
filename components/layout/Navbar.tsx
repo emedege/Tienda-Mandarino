@@ -1,4 +1,4 @@
-﻿"use client";
+"use client";
 
 import { useState } from "react";
 import Link from "next/link";
@@ -9,7 +9,7 @@ import { useCart } from "@/contexts/CartContext";
 const navLinks = [
   { href: "/tienda", label: "Tienda" },
   { href: "/sobre-mi", label: "Sobre mí" },
-  { href: "/encargo", label: "Encargo personalizado" },
+  { href: "/encargo", label: "Encargo" },
   { href: "/blog", label: "Blog" },
   { href: "/faq", label: "FAQ" },
 ];
@@ -19,39 +19,34 @@ export default function Navbar() {
   const { totalItems } = useCart();
 
   return (
-    <header className="sticky top-0 z-50 bg-[var(--color-crema)] border-b border-[var(--color-arena-light)] shadow-sm">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
+    <header className="sticky top-0 z-50 bg-[var(--color-crema)]/95 backdrop-blur-sm border-b border-[var(--color-border-light)]">
+      <nav className="max-w-7xl mx-auto px-6 lg:px-12">
+        <div className="flex items-center justify-between h-14">
 
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative w-10 h-10">
+          <Link href="/" className="flex items-center gap-2.5">
+            <div className="relative w-7 h-7">
               <Image
                 src="/logo.png"
                 alt="Azul Mandarino"
                 fill
                 className="object-contain"
-                sizes="40px"
+                sizes="28px"
                 priority
               />
             </div>
-            <div className="flex flex-col leading-tight">
-              <span className="font-serif text-sm font-bold text-[var(--color-salvia-dark)] tracking-wider uppercase">
-                Azul
-              </span>
-              <span className="font-serif text-sm font-bold text-[var(--color-terracota)] tracking-wider uppercase -mt-1">
-                Mandarino
-              </span>
-            </div>
+            <span className="text-sm font-semibold tracking-wide text-[var(--color-text)]">
+              Azul Mandarino
+            </span>
           </Link>
 
           {/* Desktop nav */}
-          <ul className="hidden md:flex items-center gap-6">
+          <ul className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className="text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-terracota)] transition-colors"
+                  className="text-xs font-medium tracking-wide text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
                 >
                   {link.label}
                 </Link>
@@ -59,42 +54,39 @@ export default function Navbar() {
             ))}
           </ul>
 
-          {/* Right side */}
-          <div className="flex items-center gap-3">
-            {/* Cart */}
+          {/* Right */}
+          <div className="flex items-center gap-2">
             <Link
               href="/carrito"
-              className="relative p-2 text-[var(--color-text)] hover:text-[var(--color-terracota)] transition-colors"
-              aria-label="Carrito de compra"
+              className="relative p-2 text-[var(--color-text-muted)] hover:text-[var(--color-text)] transition-colors"
+              aria-label="Carrito"
             >
-              <ShoppingBag className="w-5 h-5" />
+              <ShoppingBag className="w-4 h-4" />
               {totalItems > 0 && (
-                <span className="absolute -top-1 -right-1 bg-[var(--color-terracota)] text-white text-xs w-4 h-4 flex items-center justify-center rounded-full font-medium">
+                <span className="absolute -top-0.5 -right-0.5 bg-[var(--color-accent)] text-white text-[10px] w-4 h-4 flex items-center justify-center rounded-full font-semibold">
                   {totalItems}
                 </span>
               )}
             </Link>
-
-            {/* Mobile menu button */}
             <button
-              className="md:hidden p-2 text-[var(--color-text)]"
+              className="md:hidden p-2 text-[var(--color-text-muted)]"
               onClick={() => setOpen(!open)}
               aria-label="Menú"
             >
-              {open ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+              {open ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>
           </div>
         </div>
 
         {/* Mobile menu */}
         {open && (
-          <div className="md:hidden border-t border-[var(--color-arena-light)] py-4">
-            <ul className="flex flex-col gap-3">
+          <div className="md:hidden border-t border-[var(--color-border-light)] py-6">
+            <ul className="flex flex-col gap-4">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="block px-2 py-1 text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-terracota)] transition-colors"
+                    className="block text-sm font-medium text-[var(--color-text)] hover:text-[var(--color-accent)] transition-colors"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}

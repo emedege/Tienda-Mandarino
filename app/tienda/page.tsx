@@ -45,10 +45,10 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
         {/* Header */}
         <div className="bg-[var(--color-crema-dark)] border-b border-[var(--color-arena-light)] py-12">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-terracota)] mb-2">
-              Joyería Artesanal
+            <p className="text-xs font-semibold tracking-wide text-[var(--color-terracota)] mb-2">
+              Joyería artesanal
             </p>
-            <h1 className="font-serif text-4xl font-bold text-[var(--color-text)]">
+            <h1 className="text-4xl font-light text-[var(--color-text)]">
               Tienda
             </h1>
             <p className="mt-2 text-[var(--color-text-muted)] text-sm">
@@ -74,7 +74,7 @@ export default async function ShopPage({ searchParams }: ShopPageProps) {
             </div>
           ) : (
             <div className="mt-20 text-center text-[var(--color-text-muted)]">
-              <p className="font-serif text-2xl mb-3">Próximamente</p>
+              <p className="text-2xl font-light mb-3">Próximamente</p>
               <p className="text-sm">
                 {categoria
                   ? "No hay piezas en esta categoría todavía."

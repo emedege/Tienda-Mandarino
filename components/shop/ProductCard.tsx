@@ -1,4 +1,4 @@
-﻿import Link from "next/link";
+import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/client";
@@ -14,37 +14,37 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <Link href={`/tienda/${product.slug.current}`} className="group block">
-      <div className="relative aspect-square overflow-hidden rounded-2xl bg-[var(--color-crema-dark)]">
+      <div className="relative aspect-square overflow-hidden bg-[var(--color-crema-dark)]">
         <Image
           src={imageUrl}
           alt={product.name}
           fill
-          className="object-cover transition-transform duration-500 group-hover:scale-105"
+          className="object-cover transition-transform duration-700 group-hover:scale-103"
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
         />
         {!product.inStock && (
-          <div className="absolute inset-0 bg-black/40 flex items-center justify-center rounded-2xl">
-            <span className="bg-white/90 text-[var(--color-text)] text-sm font-medium px-4 py-1.5 rounded-full">
+          <div className="absolute inset-0 bg-[var(--color-crema)]/70 flex items-center justify-center">
+            <span className="bg-[var(--color-text)] text-[var(--color-crema)] text-xs font-medium px-4 py-1.5 tracking-wide">
               Vendida
             </span>
           </div>
         )}
         {product.featured && product.inStock && (
           <div className="absolute top-3 left-3">
-            <span className="bg-[var(--color-terracota)] text-white text-xs font-medium px-3 py-1 rounded-full">
+            <span className="bg-[var(--color-accent)] text-white text-[10px] font-semibold px-3 py-1 tracking-wider">
               Destacada
             </span>
           </div>
         )}
       </div>
-      <div className="mt-3 px-1">
-        <p className="text-xs text-[var(--color-text-muted)] uppercase tracking-wider mb-1">
+      <div className="mt-3">
+        <p className="text-[10px] font-semibold tracking-widest text-[var(--color-text-muted)] mb-1">
           {product.category?.title}
         </p>
-        <h3 className="font-serif text-base font-semibold text-[var(--color-text)] line-clamp-2 group-hover:text-[var(--color-terracota)] transition-colors">
+        <h3 className="text-sm font-light text-[var(--color-text)] line-clamp-2 group-hover:text-[var(--color-accent)] transition-colors">
           {product.name}
         </h3>
-        <p className="mt-1 font-medium text-[var(--color-salvia-dark)]">
+        <p className="mt-1 text-sm font-medium text-[var(--color-text)]">
           {product.price.toFixed(2)} €
         </p>
       </div>

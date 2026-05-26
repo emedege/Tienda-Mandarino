@@ -1,4 +1,4 @@
-﻿import type { Metadata } from "next";
+import type { Metadata } from "next";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
@@ -42,7 +42,7 @@ const faqs = [
       },
       {
         q: "¿Cuánto tarda en llegar mi pedido?",
-        a: "El plazo habitual es de 3 a 7 días hábiles para Península y Baleares. Para Canarias, Ceuta y Melilla puede ser de 5 a 15 días hábiles. En todo caso, nunca más de 30 días naturales.",
+        a: "El plazo habitual es de 3 a 7 días hábiles para Península y Baleares. Para Canarias, Ceuta y Melilla puede ser de 5 a 15 días hábiles.",
       },
       {
         q: "¿Cómo va embalado el pedido?",
@@ -59,11 +59,11 @@ const faqs = [
     items: [
       {
         q: "¿Qué formas de pago aceptáis?",
-        a: "Aceptamos pago con tarjeta (Visa, Mastercard, Amex) a través de Stripe, y transferencia bancaria. Puedes elegir al finalizar la compra.",
+        a: "Aceptamos pago con tarjeta (Visa, Mastercard, Amex) a través de Stripe, y transferencia bancaria.",
       },
       {
         q: "¿Es seguro pagar en vuestra web?",
-        a: "Sí. El pago con tarjeta se procesa a través de Stripe, una de las pasarelas de pago más seguras del mundo, con cifrado SSL. Nunca almacenamos datos de tu tarjeta.",
+        a: "Sí. El pago con tarjeta se procesa a través de Stripe, con cifrado SSL. Nunca almacenamos datos de tu tarjeta.",
       },
     ],
   },
@@ -72,7 +72,7 @@ const faqs = [
     items: [
       {
         q: "¿Puedo devolver mi pedido?",
-        a: "Sí. Tienes 14 días naturales desde la recepción para ejercer tu derecho de desistimiento, sin necesidad de dar explicaciones. El artículo debe estar en perfecto estado y sin uso.",
+        a: "Sí. Tienes 14 días naturales desde la recepción para ejercer tu derecho de desistimiento. El artículo debe estar en perfecto estado y sin uso.",
       },
       {
         q: "¿Quién paga los gastos de devolución?",
@@ -80,7 +80,7 @@ const faqs = [
       },
       {
         q: "¿Se pueden devolver los encargos personalizados?",
-        a: "No. Los encargos hechos a medida y según tus especificaciones están excluidos del derecho de desistimiento según la ley, al ser productos personalizados.",
+        a: "No. Los encargos hechos a medida están excluidos del derecho de desistimiento por ser productos personalizados.",
       },
     ],
   },
@@ -89,15 +89,15 @@ const faqs = [
     items: [
       {
         q: "¿Puedo pedir una pieza personalizada?",
-        a: "¡Por supuesto! Es algo que me encanta hacer. Rellena el formulario de encargo personalizado y hablamos de tu idea.",
+        a: "Sí. Rellena el formulario de encargo personalizado y hablamos de tu idea.",
       },
       {
         q: "¿Cuánto tarda un encargo personalizado?",
-        a: "Depende de la complejidad de la pieza. Una vez que hablemos de los detalles, te daré un plazo estimado. Suele ser de 1 a 3 semanas.",
+        a: "Depende de la complejidad. Suele ser de 1 a 3 semanas una vez confirmados los detalles.",
       },
       {
         q: "¿Cuánto cuesta un encargo personalizado?",
-        a: "El precio varía según la pieza. Sin compromiso, cuéntame tu idea a través del formulario y te hago un presupuesto.",
+        a: "El precio varía según la pieza. Cuéntame tu idea y te hago un presupuesto sin compromiso.",
       },
     ],
   },
@@ -108,48 +108,48 @@ export default function FaqPage() {
     <CartProvider>
       <Navbar />
       <main className="bg-[var(--color-crema)] min-h-screen">
-        <div className="bg-[var(--color-crema-dark)] border-b border-[var(--color-arena-light)] py-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-terracota)] mb-3">
-              Resolvemos tus dudas
+
+        {/* Header */}
+        <div className="bg-[var(--color-crema-dark)] border-b border-[var(--color-border)] py-16">
+          <div className="max-w-7xl mx-auto px-6 lg:px-12">
+            <p className="text-[11px] font-semibold tracking-[0.18em] text-[var(--color-accent)] mb-4">
+              Dudas frecuentes
             </p>
-            <h1 className="font-serif text-4xl font-bold text-[var(--color-text)]">
+            <h1 className="text-5xl font-extralight text-[var(--color-text)]">
               Preguntas frecuentes
             </h1>
           </div>
         </div>
 
-        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16 space-y-12">
+        <div className="max-w-3xl mx-auto px-6 lg:px-12 py-20 space-y-16">
           {faqs.map(({ category, items }) => (
             <div key={category}>
-              <h2 className="font-serif text-2xl font-bold text-[var(--color-salvia-dark)] mb-6 pb-3 border-b border-[var(--color-arena-light)]">
+              <h2 className="text-xs font-semibold tracking-[0.18em] text-[var(--color-accent)] mb-8 pb-4 border-b border-[var(--color-border)]">
                 {category}
               </h2>
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {items.map(({ q, a }) => (
                   <div key={q}>
-                    <h3 className="font-medium text-[var(--color-text)] mb-2">{q}</h3>
-                    <p className="text-[var(--color-text-muted)] leading-relaxed text-sm">
-                      {a}
-                    </p>
+                    <h3 className="text-base font-medium text-[var(--color-text)] mb-2">{q}</h3>
+                    <p className="text-sm font-light text-[var(--color-text-muted)] leading-relaxed">{a}</p>
                   </div>
                 ))}
               </div>
             </div>
           ))}
 
-          <div className="bg-[var(--color-terracota)]/10 rounded-2xl p-8 text-center border border-[var(--color-terracota)]/20">
-            <p className="font-serif text-xl text-[var(--color-text)] mb-2">
+          <div className="border border-[var(--color-border)] p-10 text-center bg-[var(--color-crema-dark)]">
+            <p className="text-xl font-extralight text-[var(--color-text)] mb-2">
               ¿No encuentras tu respuesta?
             </p>
-            <p className="text-sm text-[var(--color-text-muted)] mb-4">
+            <p className="text-sm font-light text-[var(--color-text-muted)] mb-6">
               Escríbeme directamente y te respondo lo antes posible.
             </p>
             <a
               href="mailto:arte@marinadescalzi.es"
-              className="inline-flex items-center gap-2 bg-[var(--color-terracota)] text-white px-6 py-3 rounded-full text-sm font-medium hover:bg-[var(--color-terracota-dark)] transition-colors"
+              className="inline-flex items-center gap-2 bg-[var(--color-dark)] text-[var(--color-crema)] px-8 py-3 text-sm font-medium hover:bg-[var(--color-accent)] transition-colors"
             >
-              Contactar por email
+              arte@marinadescalzi.es
             </a>
           </div>
         </div>

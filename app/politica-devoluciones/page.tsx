@@ -14,7 +14,7 @@ export default function PoliticaDevolucionesPage() {
       <Navbar />
       <main className="bg-[var(--color-crema)] min-h-screen">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h1 className="font-serif text-4xl font-bold text-[var(--color-text)] mb-2">
+          <h1 className="text-4xl font-extralight text-[var(--color-text)] mb-2">
             Política de Devoluciones y Envíos
           </h1>
           <p className="text-sm text-[var(--color-text-muted)] mb-10">
@@ -23,7 +23,7 @@ export default function PoliticaDevolucionesPage() {
 
           <div className="space-y-8 text-[var(--color-text-muted)] leading-relaxed">
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 1. Envíos
               </h2>
               <h3 className="font-medium text-[var(--color-text)] mb-2">Ámbito geográfico</h3>
@@ -52,7 +52,7 @@ export default function PoliticaDevolucionesPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 2. Derecho de desistimiento
               </h2>
               <p>
@@ -90,7 +90,7 @@ export default function PoliticaDevolucionesPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 3. Garantía legal
               </h2>
               <p>
@@ -101,7 +101,7 @@ export default function PoliticaDevolucionesPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 4. Resolución de disputas
               </h2>
               <p>
@@ -119,7 +119,7 @@ export default function PoliticaDevolucionesPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 5. Contacto
               </h2>
               <p>

@@ -60,7 +60,7 @@ function EncargoForm() {
     return (
       <div className="min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
         <CheckCircle className="w-16 h-16 text-[var(--color-salvia)] mb-6" />
-        <h2 className="font-serif text-3xl font-bold text-[var(--color-text)] mb-4">
+        <h2 className="text-3xl font-extralight text-[var(--color-text)] mb-4">
           ¡Encargo recibido!
         </h2>
         <p className="text-[var(--color-text-muted)] max-w-md leading-relaxed">
@@ -85,7 +85,7 @@ function EncargoForm() {
             {...register("nombre")}
             type="text"
             placeholder="Tu nombre"
-            className="w-full px-4 py-3 rounded-xl border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm"
+            className="w-full px-4 py-3 border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm"
           />
           {errors.nombre && (
             <p className="mt-1 text-xs text-red-500">{errors.nombre.message}</p>
@@ -99,7 +99,7 @@ function EncargoForm() {
             {...register("email")}
             type="email"
             placeholder="tu@email.com"
-            className="w-full px-4 py-3 rounded-xl border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm"
+            className="w-full px-4 py-3 border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm"
           />
           {errors.email && (
             <p className="mt-1 text-xs text-red-500">{errors.email.message}</p>
@@ -116,7 +116,7 @@ function EncargoForm() {
             {...register("telefono")}
             type="tel"
             placeholder="+34 600 000 000"
-            className="w-full px-4 py-3 rounded-xl border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm"
+            className="w-full px-4 py-3 border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm"
           />
         </div>
         <div>
@@ -125,7 +125,7 @@ function EncargoForm() {
           </label>
           <select
             {...register("tipo")}
-            className="w-full px-4 py-3 rounded-xl border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm text-[var(--color-text)]"
+            className="w-full px-4 py-3 border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm text-[var(--color-text)]"
           >
             <option value="">Selecciona...</option>
             <option value="Pendientes">Pendientes</option>
@@ -146,7 +146,7 @@ function EncargoForm() {
           {...register("descripcion")}
           rows={5}
           placeholder="Describe la pieza que tienes en mente: colores, estilo, si es para regalo, la persona a quien va dirigida... ¡Cuanto más detalle, mejor!"
-          className="w-full px-4 py-3 rounded-xl border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm resize-none"
+          className="w-full px-4 py-3 border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm resize-none"
         />
         {errors.descripcion && (
           <p className="mt-1 text-xs text-red-500">
@@ -162,7 +162,7 @@ function EncargoForm() {
           </label>
           <select
             {...register("presupuesto")}
-            className="w-full px-4 py-3 rounded-xl border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm text-[var(--color-text)]"
+            className="w-full px-4 py-3 border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm text-[var(--color-text)]"
           >
             <option value="">Flexible / No lo sé</option>
             <option value="Hasta 30€">Hasta 30€</option>
@@ -179,7 +179,7 @@ function EncargoForm() {
             {...register("plazo")}
             type="text"
             placeholder="Ej: para el 15 de junio"
-            className="w-full px-4 py-3 rounded-xl border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm"
+            className="w-full px-4 py-3 border border-[var(--color-arena-light)] bg-white focus:outline-none focus:ring-2 focus:ring-[var(--color-salvia)] text-sm"
           />
         </div>
       </div>
@@ -209,7 +209,7 @@ function EncargoForm() {
       )}
 
       {serverError && (
-        <p className="text-sm text-red-500 bg-red-50 px-4 py-3 rounded-xl">
+        <p className="text-sm text-red-500 bg-red-50 px-4 py-3 ">
           {serverError}
         </p>
       )}
@@ -217,7 +217,7 @@ function EncargoForm() {
       <button
         type="submit"
         disabled={sending}
-        className="w-full flex items-center justify-center gap-2 bg-[var(--color-salvia-dark)] text-white px-8 py-4 rounded-full font-medium hover:bg-[var(--color-salvia)] transition-colors disabled:opacity-50 text-sm"
+        className="w-full flex items-center justify-center gap-2 bg-[var(--color-dark)] text-[var(--color-crema)] px-8 py-4 text-sm font-medium hover:bg-[var(--color-accent)] transition-colors disabled:opacity-50"
       >
         {sending ? "Enviando..." : (
           <>
@@ -237,10 +237,10 @@ export default function EncargoPage() {
       <main className="bg-[var(--color-crema)] min-h-screen">
         <div className="bg-[var(--color-crema-dark)] border-b border-[var(--color-arena-light)] py-16">
           <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p className="text-xs font-medium uppercase tracking-[0.2em] text-[var(--color-terracota)] mb-3">
+            <p className="text-[11px] font-semibold tracking-[0.18em] text-[var(--color-accent)] mb-4">
               ¿Tienes algo en mente?
             </p>
-            <h1 className="font-serif text-4xl sm:text-5xl font-bold text-[var(--color-text)] mb-4">
+            <h1 className="text-5xl font-extralight text-[var(--color-text)] mb-4">
               Encargo personalizado
             </h1>
             <p className="text-[var(--color-text-muted)] max-w-xl mx-auto leading-relaxed">
@@ -255,27 +255,27 @@ export default function EncargoPage() {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-16">
             {[
               {
-                emoji: "💬",
+                step: "01",
                 title: "Cuéntame tu idea",
                 desc: "Rellena el formulario con todos los detalles que se te ocurran.",
               },
               {
-                emoji: "🎨",
+                step: "02",
                 title: "Hablamos y diseñamos",
                 desc: "Te contacto para afinar detalles y darte un presupuesto sin compromiso.",
               },
               {
-                emoji: "✨",
+                step: "03",
                 title: "Creo tu pieza",
-                desc: "Una vez confirmado el encargo, creo tu joya única con todo el amor.",
+                desc: "Una vez confirmado el encargo, creo tu joya única con todo el cuidado.",
               },
-            ].map(({ emoji, title, desc }) => (
+            ].map(({ step, title, desc }) => (
               <div
                 key={title}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-[var(--color-arena-light)] text-center"
+                className="bg-[var(--color-crema-dark)] border border-[var(--color-border)] p-8 text-center"
               >
-                <div className="text-3xl mb-3">{emoji}</div>
-                <h3 className="font-serif text-lg font-semibold text-[var(--color-text)] mb-2">
+                <div className="text-2xl font-extralight text-[var(--color-accent)] mb-3">{step}</div>
+                <h3 className="text-base font-medium text-[var(--color-text)] mb-2">
                   {title}
                 </h3>
                 <p className="text-sm text-[var(--color-text-muted)] leading-relaxed">{desc}</p>

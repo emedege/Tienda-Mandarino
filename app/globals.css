@@ -1,28 +1,40 @@
 @import "tailwindcss";
 
 @theme inline {
-  /* Brand colors - Azul Mandarino */
-  --color-salvia: #7BAE9E;
-  --color-salvia-light: #A8CCBF;
-  --color-salvia-dark: #5A9080;
-  --color-terracota: #D4755A;
-  --color-terracota-light: #E8A08A;
-  --color-terracota-dark: #B85C42;
-  --color-arena: #C9A882;
-  --color-arena-light: #E0CAB0;
-  --color-arena-dark: #A88860;
+  /* Marfil cálido */
+  --color-crema:      #FDFAF6;
+  --color-crema-dark: #F4EDE3;
 
-  /* Fondo salmón suave */
-  --color-crema: #F5E5DF;
-  --color-crema-dark: #EDD8CE;
+  /* Oscuro (secciones contrastadas y botones) */
+  --color-dark:       #1C2438;
+  --color-dark-soft:  #252D46;
 
-  /* Color de texto — paleta cálida */
-  --color-text: #4A3020;
-  --color-text-muted: #6B4A35;
+  /* Cobre/terracota (único acento) */
+  --color-accent:       #B8683A;
+  --color-accent-light: #D9A07A;
+  --color-accent-dark:  #8A4820;
+
+  /* Texto — teal del logo */
+  --color-text:       #529080;
+  --color-text-muted: #7A9E96;
+
+  /* Bordes */
+  --color-border:       #E5D8CC;
+  --color-border-light: #EDE3D8;
+
+  /* Alias — mantiene compatibilidad con componentes existentes */
+  --color-salvia:          var(--color-accent);
+  --color-salvia-light:    var(--color-accent-light);
+  --color-salvia-dark:     var(--color-dark);
+  --color-terracota:       var(--color-accent);
+  --color-terracota-light: var(--color-accent-light);
+  --color-terracota-dark:  var(--color-accent-dark);
+  --color-arena:           var(--color-border);
+  --color-arena-light:     var(--color-border-light);
+  --color-arena-dark:      #C8B8A8;
 
   /* Typography */
-  --font-serif: var(--font-cormorant);
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-montserrat);
 
   --color-background: var(--color-crema);
   --color-foreground: var(--color-text);
@@ -31,27 +43,26 @@
 body {
   background: var(--color-crema);
   color: var(--color-text);
-  font-family: var(--font-inter), system-ui, sans-serif;
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 300;
   -webkit-font-smoothing: antialiased;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-cormorant), Georgia, serif;
-  font-weight: 500;
-  letter-spacing: 0.02em;
+  font-family: var(--font-montserrat), system-ui, sans-serif;
+  font-weight: 200;
+  letter-spacing: -0.02em;
 }
 
-html {
-  scroll-behavior: smooth;
-}
+html { scroll-behavior: smooth; }
 
-::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar { width: 4px; }
 ::-webkit-scrollbar-track { background: var(--color-crema); }
-::-webkit-scrollbar-thumb { background: var(--color-salvia); border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
 
 *:focus-visible {
-  outline: 2px solid var(--color-salvia);
-  outline-offset: 2px;
+  outline: 1px solid var(--color-accent);
+  outline-offset: 3px;
 }
 
 .line-clamp-2 {

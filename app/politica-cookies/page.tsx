@@ -14,7 +14,7 @@ export default function PoliticaCookiesPage() {
       <Navbar />
       <main className="bg-[var(--color-crema)] min-h-screen">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h1 className="font-serif text-4xl font-bold text-[var(--color-text)] mb-2">
+          <h1 className="text-4xl font-extralight text-[var(--color-text)] mb-2">
             Política de Cookies
           </h1>
           <p className="text-sm text-[var(--color-text-muted)] mb-10">
@@ -23,7 +23,7 @@ export default function PoliticaCookiesPage() {
 
           <div className="space-y-8 text-[var(--color-text-muted)] leading-relaxed">
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 ¿Qué son las cookies?
               </h2>
               <p>
@@ -33,7 +33,7 @@ export default function PoliticaCookiesPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 Cookies que utilizamos
               </h2>
               <div className="overflow-x-auto">
@@ -69,7 +69,7 @@ export default function PoliticaCookiesPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 Cómo gestionar las cookies
               </h2>
               <p>
@@ -96,7 +96,7 @@ export default function PoliticaCookiesPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 Contacto
               </h2>
               <p>

@@ -219,8 +219,8 @@ function ProductDetailContent({ slug }: { slug: string }) {
               {/* Dimensions */}
               {(product.dimensions || product.weight) && (
                 <div className="mb-6 flex gap-6 text-sm text-[#2D2D2D]/60">
-                  {product.dimensions && <span>📏 {product.dimensions}</span>}
-                  {product.weight && <span>⚖️ {product.weight}</span>}
+                  {product.dimensions && <span>Medidas: {product.dimensions}</span>}
+                  {product.weight && <span>Peso: {product.weight}</span>}
                 </div>
               )}
 
@@ -271,10 +271,9 @@ function ProductDetailContent({ slug }: { slug: string }) {
 
               {/* Trust */}
               <div className="mt-8 pt-6 border-t border-[var(--color-arena-light)] space-y-2 text-sm text-[#2D2D2D]/60">
-                <p>✓ Pieza artesanal única e irrepetible</p>
-                <p>✓ Envío a toda España · packaging cuidado</p>
+                <p>Pieza artesanal única e irrepetible</p>
+                <p>Envío a toda España · packaging cuidado</p>
                 <p>
-                  ✓{" "}
                   <Link
                     href="/politica-devoluciones"
                     className="underline hover:text-[var(--color-terracota)] transition-colors"
@@ -282,7 +281,7 @@ function ProductDetailContent({ slug }: { slug: string }) {
                     14 días de devolución
                   </Link>
                 </p>
-                <p>✓ Pago seguro con Stripe</p>
+                <p>Pago seguro con Stripe</p>
               </div>
             </div>
           </div>

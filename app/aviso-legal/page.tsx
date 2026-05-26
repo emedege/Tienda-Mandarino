@@ -14,7 +14,7 @@ export default function AvisoLegalPage() {
       <Navbar />
       <main className="bg-[var(--color-crema)] min-h-screen">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h1 className="font-serif text-4xl font-bold text-[var(--color-text)] mb-2">
+          <h1 className="text-4xl font-extralight text-[var(--color-text)] mb-2">
             Aviso Legal
           </h1>
           <p className="text-sm text-[var(--color-text-muted)] mb-10">
@@ -23,7 +23,7 @@ export default function AvisoLegalPage() {
 
           <div className="prose prose-stone max-w-none space-y-8 text-[var(--color-text-muted)] leading-relaxed">
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 1. Datos identificativos del titular
               </h2>
               <p>
@@ -62,7 +62,7 @@ export default function AvisoLegalPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 2. Objeto y ámbito de aplicación
               </h2>
               <p>
@@ -73,7 +73,7 @@ export default function AvisoLegalPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 3. Propiedad intelectual e industrial
               </h2>
               <p>
@@ -91,7 +91,7 @@ export default function AvisoLegalPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 4. Exclusión de responsabilidad
               </h2>
               <p>
@@ -104,7 +104,7 @@ export default function AvisoLegalPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 5. Legislación aplicable y jurisdicción
               </h2>
               <p>
@@ -116,7 +116,7 @@ export default function AvisoLegalPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 6. Modificaciones
               </h2>
               <p>

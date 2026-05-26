@@ -14,7 +14,7 @@ export default function PoliticaPrivacidadPage() {
       <Navbar />
       <main className="bg-[var(--color-crema)] min-h-screen">
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-          <h1 className="font-serif text-4xl font-bold text-[var(--color-text)] mb-2">
+          <h1 className="text-4xl font-extralight text-[var(--color-text)] mb-2">
             Política de Privacidad
           </h1>
           <p className="text-sm text-[var(--color-text-muted)] mb-10">
@@ -23,7 +23,7 @@ export default function PoliticaPrivacidadPage() {
 
           <div className="space-y-8 text-[var(--color-text-muted)] leading-relaxed">
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 1. Responsable del tratamiento
               </h2>
               <ul className="space-y-1 list-disc pl-5">
@@ -35,7 +35,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 2. Finalidades y base jurídica del tratamiento
               </h2>
               <div className="overflow-x-auto">
@@ -69,7 +69,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 3. Datos que tratamos
               </h2>
               <p>Según el contexto, podemos tratar:</p>
@@ -82,7 +82,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 4. Destinatarios y transferencias internacionales
               </h2>
               <p>
@@ -97,7 +97,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 5. Plazos de conservación
               </h2>
               <ul className="space-y-1 list-disc pl-5">
@@ -108,7 +108,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 6. Tus derechos
               </h2>
               <p>Puedes ejercer en cualquier momento los derechos de:</p>
@@ -138,7 +138,7 @@ export default function PoliticaPrivacidadPage() {
             </section>
 
             <section>
-              <h2 className="font-serif text-xl font-semibold text-[var(--color-text)] mb-3">
+              <h2 className="text-lg font-medium text-[var(--color-text)] mb-3">
                 7. Medidas de seguridad
               </h2>
               <p>

@@ -19,7 +19,7 @@ export async function POST(req: NextRequest) {
       from: "Azul Mandarino Web <noreply@azulmandarino.com>",
       to: "arte@marinadescalzi.es",
       replyTo: email,
-      subject: `🎨 Nuevo encargo personalizado de ${nombre}`,
+      subject: `Nuevo encargo personalizado de ${nombre}`,
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #FAF7F0; border-radius: 16px;">
           <h1 style="color: #5A9080; font-size: 24px; margin-bottom: 8px;">Nuevo encargo personalizado</h1>
@@ -51,7 +51,7 @@ export async function POST(req: NextRequest) {
       subject: "He recibido tu encargo — Azul Mandarino",
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #FAF7F0; border-radius: 16px;">
-          <h1 style="color: #5A9080; font-size: 24px;">¡Hola, ${nombre}! 🌿</h1>
+          <h1 style="color: #5A9080; font-size: 24px;">¡Hola, ${nombre}!</h1>
           <p style="color: var(--color-text); font-size: 15px; line-height: 1.7;">He recibido tu solicitud de encargo y me alegra mucho que te guste mi trabajo. Me pondré en contacto contigo en los próximos días para hablar de los detalles.</p>
           <p style="color: var(--color-text); font-size: 15px; line-height: 1.7;">Mientras tanto, si tienes alguna duda puedes escribirme directamente a <a href="mailto:arte@marinadescalzi.es" style="color: #D4755A;">arte@marinadescalzi.es</a>.</p>
           <p style="color: var(--color-text); font-size: 15px; line-height: 1.7; margin-top: 24px;">Con cariño,<br/><strong>Marina</strong><br/><span style="color: #7BAE9E;">Azul Mandarino</span></p>
