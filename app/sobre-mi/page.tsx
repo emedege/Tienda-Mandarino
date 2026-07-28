@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "Sobre mí",
   description:
     "Soy Marina Descalzi, la artesana detrás de Azul Mandarino. Creo joyería artesanal única con resina y arcilla polimérica desde Madrid.",
+  alternates: { canonical: "/sobre-mi" },
 };
 
 export default function SobreMiPage() {
@@ -44,10 +45,11 @@ export default function SobreMiPage() {
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </a>
             </div>
+            {/* TODO: placeholder con foto de producto — sustituir por el retrato real de Marina cuando lo envíe */}
             <div className="relative aspect-[3/4] lg:aspect-auto lg:min-h-[560px] bg-[var(--color-border)] order-1 lg:order-2">
               <Image
                 src="/marina-portrait.jpg"
-                alt="Marina Descalzi, creadora de Azul Mandarino"
+                alt="Piezas artesanales de Azul Mandarino"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

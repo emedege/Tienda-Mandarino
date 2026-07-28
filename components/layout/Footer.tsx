@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const legalLinks = [
   { href: "/aviso-legal", label: "Aviso legal" },
@@ -15,9 +16,20 @@ export default function Footer() {
 
           {/* Brand */}
           <div className="md:col-span-2">
-            <p className="text-base font-semibold text-[var(--color-text)] mb-3">
-              Azul Mandarino
-            </p>
+            <div className="flex items-center gap-2.5 mb-3">
+              <div className="relative w-8 h-8 shrink-0">
+                <Image
+                  src="/logo-icon.png"
+                  alt="Azul Mandarino"
+                  fill
+                  className="object-contain"
+                  sizes="32px"
+                />
+              </div>
+              <p className="text-base font-semibold text-[var(--color-text)]">
+                Azul Mandarino
+              </p>
+            </div>
             <p className="text-xs font-light text-[var(--color-text-muted)] leading-relaxed max-w-xs mb-5">
               Joyería artesanal hecha a mano en Madrid. Cada pieza es única e irrepetible.
             </p>

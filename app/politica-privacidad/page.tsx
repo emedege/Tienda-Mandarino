@@ -27,9 +27,8 @@ export default function PoliticaPrivacidadPage() {
                 1. Responsable del tratamiento
               </h2>
               <ul className="space-y-1 list-disc pl-5">
-                <li><strong>Identidad:</strong> Marina Descalzi</li>
-                <li><strong>NIF:</strong> 47296050T</li>
-                <li><strong>Dirección:</strong> Calle Picos de Urbión, 1, Pozuelo de Alarcón, 28224, Madrid</li>
+                <li><strong>Identidad:</strong> F. Rodríguez (Azul Mandarino)</li>
+                <li><strong>NIF:</strong> 50887688G</li>
                 <li><strong>Email:</strong> <a href="mailto:arte@marinadescalzi.es" className="text-[var(--color-terracota)] hover:underline">arte@marinadescalzi.es</a></li>
               </ul>
             </section>

@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Preguntas frecuentes",
   description:
     "Resolvemos todas tus dudas sobre envíos, materiales, encargos y devoluciones de Azul Mandarino.",
+  alternates: { canonical: "/faq" },
 };
 
 const faqs = [

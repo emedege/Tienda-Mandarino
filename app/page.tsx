@@ -140,10 +140,11 @@ export default async function HomePage() {
           <div className="max-w-7xl mx-auto px-6 lg:px-12 grid grid-cols-1 lg:grid-cols-2 gap-0">
 
             {/* Image */}
+            {/* TODO: placeholder con foto de producto — sustituir por una foto real de Marina en su taller cuando la envíe */}
             <div className="relative aspect-[4/3] lg:aspect-auto lg:min-h-[520px] bg-[var(--color-border)]">
               <Image
                 src="/about-image.jpg"
-                alt="Marina Descalzi"
+                alt="Piezas artesanales de Azul Mandarino"
                 fill
                 className="object-cover"
                 sizes="(max-width: 1024px) 100vw, 50vw"

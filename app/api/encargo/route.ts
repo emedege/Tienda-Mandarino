@@ -48,6 +48,7 @@ export async function POST(req: NextRequest) {
     await resend.emails.send({
       from: "Marina · Azul Mandarino <arte@azulmandarino.com>",
       to: email,
+      replyTo: "arte@marinadescalzi.es",
       subject: "He recibido tu encargo — Azul Mandarino",
       html: `
         <div style="font-family: Georgia, serif; max-width: 600px; margin: 0 auto; padding: 32px; background: #FAF7F0; border-radius: 16px;">

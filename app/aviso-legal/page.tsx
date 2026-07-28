@@ -33,14 +33,13 @@ export default function AvisoLegalPage() {
               </p>
               <ul className="mt-3 space-y-1 list-disc pl-5">
                 <li>
-                  <strong>Titular:</strong> Marina Descalzi
+                  <strong>Titular:</strong> F. Rodríguez
                 </li>
                 <li>
-                  <strong>DNI/NIF:</strong> 47296050T
+                  <strong>Nombre comercial:</strong> Azul Mandarino (Marina Descalzi)
                 </li>
                 <li>
-                  <strong>Domicilio:</strong> Calle Picos de Urbión, 1, Pozuelo
-                  de Alarcón, 28224, Madrid
+                  <strong>NIF:</strong> 50887688G
                 </li>
                 <li>
                   <strong>Email:</strong>{" "}

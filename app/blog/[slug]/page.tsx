@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { PortableText, type PortableTextComponents } from "@portabletext/react";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/layout/CookieBanner";
@@ -9,6 +10,22 @@ import { CartProvider } from "@/contexts/CartContext";
 import { getBlogPostBySlug } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/client";
 import { ArrowLeft } from "lucide-react";
+
+const portableTextComponents: PortableTextComponents = {
+  types: {
+    image: ({ value }) => (
+      <div className="relative w-full aspect-[3/2] my-8 overflow-hidden rounded-xl">
+        <Image
+          src={urlFor(value).width(1000).url()}
+          alt={value.alt || ""}
+          fill
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, 768px"
+        />
+      </div>
+    ),
+  },
+};
 
 interface BlogPostPageProps {
   params: Promise<{ slug: string }>;
@@ -28,6 +45,7 @@ export async function generateMetadata({
   return {
     title: post.title,
     description: post.excerpt,
+    alternates: { canonical: `/blog/${slug}` },
     openGraph: {
       images: post.mainImage
         ? [{ url: urlFor(post.mainImage).width(1200).height(630).url() }]
@@ -109,9 +127,9 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
           )}
 
           <div className="prose prose-stone max-w-none text-[#2D2D2D]/80 leading-relaxed">
-            <p className="text-[#2D2D2D]/50 italic">
-              [Contenido del artículo — se renderiza desde Sanity CMS]
-            </p>
+            {post.body && (
+              <PortableText value={post.body} components={portableTextComponents} />
+            )}
           </div>
         </div>
       </main>

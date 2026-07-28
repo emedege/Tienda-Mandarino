@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   title: "Tienda",
   description:
     "Descubre nuestra colección de joyería artesanal única: pendientes, pulseras, anillos, collares y broches de resina y arcilla polimérica. Cada pieza es irrepetible.",
+  alternates: { canonical: "/tienda" },
 };
 
 export const revalidate = 60;

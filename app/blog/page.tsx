@@ -13,6 +13,7 @@ export const metadata: Metadata = {
   title: "Blog · Lookbook",
   description:
     "Inspiración, novedades y el proceso creativo detrás de Azul Mandarino. Descubre el mundo de la joyería artesanal.",
+  alternates: { canonical: "/blog" },
 };
 
 export const revalidate = 3600;

@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Montserrat } from "next/font/google";
+import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import "./globals.css";
 
 const montserrat = Montserrat({
@@ -67,10 +68,18 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  icons: {
-    icon: "/favicon.ico",
-    apple: "/apple-touch-icon.png",
-  },
+};
+
+const organizationStructuredData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Azul Mandarino",
+  url: "https://azulmandarino.com",
+  logo: "https://azulmandarino.com/og-image.jpg",
+  description:
+    "Joyería artesanal hecha a mano en España. Pendientes, pulseras, anillos, collares y broches únicos de resina y arcilla polimérica.",
+  founder: { "@type": "Person", name: "Marina Descalzi" },
+  sameAs: ["https://www.instagram.com/azulmandarinoo/"],
 };
 
 export default function RootLayout({
@@ -84,6 +93,11 @@ export default function RootLayout({
       className={montserrat.variable}
     >
       <body className="min-h-screen flex flex-col antialiased">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationStructuredData) }}
+        />
+        <GoogleAnalytics />
         {children}
       </body>
     </html>

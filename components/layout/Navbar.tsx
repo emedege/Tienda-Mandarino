@@ -25,13 +25,13 @@ export default function Navbar() {
 
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2.5">
-            <div className="relative w-7 h-7">
+            <div className="relative w-8 h-8 shrink-0">
               <Image
-                src="/logo.png"
+                src="/logo-icon.png"
                 alt="Azul Mandarino"
                 fill
                 className="object-contain"
-                sizes="28px"
+                sizes="32px"
                 priority
               />
             </div>
