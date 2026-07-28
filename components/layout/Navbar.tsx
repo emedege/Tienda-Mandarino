@@ -35,8 +35,9 @@ export default function Navbar() {
                 priority
               />
             </div>
-            <span className="text-sm font-semibold tracking-wide text-[var(--color-text)]">
-              Azul Mandarino
+            <span className="text-xs font-light uppercase tracking-[0.2em]">
+              <span className="text-[var(--color-accent)]">Azul</span>{" "}
+              <span className="text-[var(--color-text)]">Mandarino</span>
             </span>
           </Link>
 

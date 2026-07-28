@@ -26,8 +26,9 @@ export default function Footer() {
                   sizes="32px"
                 />
               </div>
-              <p className="text-base font-semibold text-[var(--color-text)]">
-                Azul Mandarino
+              <p className="text-sm font-light uppercase tracking-[0.2em]">
+                <span className="text-[var(--color-accent)]">Azul</span>{" "}
+                <span className="text-[var(--color-text)]">Mandarino</span>
               </p>
             </div>
             <p className="text-xs font-light text-[var(--color-text-muted)] leading-relaxed max-w-xs mb-5">
