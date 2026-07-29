@@ -1,32 +1,56 @@
 "use client";
 
-import { useEffect } from "react";
+import { Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import { CartProvider, useCart } from "@/contexts/CartContext";
+import { CartProvider } from "@/contexts/CartContext";
+import { BANK_TRANSFER } from "@/lib/payment";
 import { ArrowRight } from "lucide-react";
 
 function OrderSuccess() {
-  const { clearCart } = useCart();
-
-  useEffect(() => {
-    clearCart();
-  }, [clearCart]);
+  const searchParams = useSearchParams();
+  const reference = searchParams.get("ref");
+  const total = searchParams.get("total");
 
   return (
     <main className="bg-[var(--color-crema)] min-h-screen flex items-center">
       <div className="max-w-xl mx-auto px-6 py-24 text-center">
         <div className="w-px h-16 bg-[var(--color-accent)] mx-auto mb-12" />
         <h1 className="text-4xl font-extralight text-[var(--color-text)] mb-6">
-          Pedido confirmado
+          Pedido reservado
         </h1>
         <p className="text-base font-light text-[var(--color-text-muted)] leading-relaxed mb-4">
-          Gracias por tu compra. Recibirás un email de confirmación en breve
-          con todos los detalles de tu pedido.
+          Recibirás un email con estos mismos datos. Para confirmar el
+          pedido, haz la transferencia con estos datos:
         </p>
+
+        {reference && (
+          <div className="text-left mx-auto max-w-sm border border-[var(--color-border)] bg-[var(--color-crema-dark)] p-6 mb-8">
+            <p className="text-sm mb-2">
+              <span className="text-[var(--color-text-muted)]">IBAN:</span>{" "}
+              <strong>{BANK_TRANSFER.iban}</strong>
+            </p>
+            <p className="text-sm mb-2">
+              <span className="text-[var(--color-text-muted)]">Titular:</span>{" "}
+              <strong>{BANK_TRANSFER.titular}</strong>
+            </p>
+            {total && (
+              <p className="text-sm mb-2">
+                <span className="text-[var(--color-text-muted)]">Importe:</span>{" "}
+                <strong>{Number(total).toFixed(2)} €</strong>
+              </p>
+            )}
+            <p className="text-sm">
+              <span className="text-[var(--color-text-muted)]">Concepto:</span>{" "}
+              <strong>{reference}</strong>
+            </p>
+          </div>
+        )}
+
         <p className="text-sm font-light text-[var(--color-text-muted)] mb-14">
-          Preparo tu pieza con todo el cuidado y te la envío lo antes posible.
+          En cuanto reciba la transferencia, preparo tu pieza y te la envío.
           Cualquier duda, escríbeme a{" "}
           <a
             href="mailto:arte@marinadescalzi.es"
@@ -59,7 +83,9 @@ export default function PedidoCompletadoPage() {
   return (
     <CartProvider>
       <Navbar />
-      <OrderSuccess />
+      <Suspense fallback={null}>
+        <OrderSuccess />
+      </Suspense>
       <Footer />
     </CartProvider>
   );

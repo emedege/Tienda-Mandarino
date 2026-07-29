@@ -1,32 +1,57 @@
 "use client";
 
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/layout/CookieBanner";
 import { CartProvider, useCart } from "@/contexts/CartContext";
+import { SHIPPING_COST } from "@/lib/payment";
 import { Trash2, ArrowRight, ShoppingBag } from "lucide-react";
 
-function CartContent() {
-  const { items, totalPrice, removeItem } = useCart();
-  const [loading, setLoading] = useState(false);
+const emptyCustomer = {
+  nombre: "",
+  email: "",
+  telefono: "",
+  direccion: "",
+  ciudad: "",
+  cp: "",
+  provincia: "",
+};
 
-  const handleCheckout = async () => {
+function CartContent() {
+  const { items, totalPrice, removeItem, clearCart } = useCart();
+  const router = useRouter();
+  const [loading, setLoading] = useState(false);
+  const [showForm, setShowForm] = useState(false);
+  const [customer, setCustomer] = useState(emptyCustomer);
+  const [error, setError] = useState("");
+
+  const handleChange = (field: keyof typeof emptyCustomer, value: string) => {
+    setCustomer((prev) => ({ ...prev, [field]: value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
     setLoading(true);
+    setError("");
     try {
-      const res = await fetch("/api/checkout", {
+      const res = await fetch("/api/pedido", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ items }),
+        body: JSON.stringify({ items, customer }),
       });
-      const { url, error } = await res.json();
-      if (error) throw new Error(error);
-      if (url) window.location.href = url;
+      const data = await res.json();
+      if (data.error) throw new Error(data.error);
+      clearCart();
+      router.push(
+        `/pedido-completado?ref=${data.reference}&total=${data.total}`
+      );
     } catch (err) {
       console.error(err);
-      alert("Error al procesar el pago. Inténtalo de nuevo.");
+      setError("Error al procesar el pedido. Inténtalo de nuevo.");
     } finally {
       setLoading(false);
     }
@@ -52,6 +77,8 @@ function CartContent() {
       </div>
     );
   }
+
+  const total = totalPrice + SHIPPING_COST;
 
   return (
     <div className="max-w-2xl mx-auto px-6 lg:px-12 py-16">
@@ -98,31 +125,114 @@ function CartContent() {
         </div>
         <div className="flex justify-between items-center mb-2 text-sm font-light text-[var(--color-text-muted)]">
           <span>Envío</span>
-          <span>Calculado al pagar</span>
+          <span>{SHIPPING_COST.toFixed(2)} €</span>
         </div>
         <div className="border-t border-[var(--color-border)] mt-4 pt-4 flex justify-between items-center">
           <span className="text-sm font-medium text-[var(--color-text)]">Total</span>
           <span className="text-lg font-light text-[var(--color-text)]">
-            desde {totalPrice.toFixed(2)} €
+            {total.toFixed(2)} €
           </span>
         </div>
 
-        <button
-          onClick={handleCheckout}
-          disabled={loading}
-          className="mt-6 w-full flex items-center justify-center gap-3 bg-[var(--color-dark)] text-[var(--color-crema)] px-8 py-4 text-sm font-medium hover:bg-[var(--color-accent)] transition-colors disabled:opacity-50"
-        >
-          {loading ? "Procesando..." : (
-            <>
+        {!showForm && (
+          <>
+            <button
+              onClick={() => setShowForm(true)}
+              className="mt-6 w-full flex items-center justify-center gap-3 bg-[var(--color-dark)] text-[var(--color-crema)] px-8 py-4 text-sm font-medium hover:bg-[var(--color-accent)] transition-colors"
+            >
               Finalizar compra
               <ArrowRight className="w-4 h-4" />
-            </>
-          )}
-        </button>
+            </button>
+            <p className="mt-3 text-center text-xs font-light text-[var(--color-text-muted)]">
+              Pago por transferencia bancaria
+            </p>
+          </>
+        )}
 
-        <p className="mt-3 text-center text-xs font-light text-[var(--color-text-muted)]">
-          Pago seguro con Stripe
-        </p>
+        {showForm && (
+          <form onSubmit={handleSubmit} className="mt-8 space-y-4">
+            <h2 className="text-sm font-medium text-[var(--color-text)] mb-2">
+              Datos de envío
+            </h2>
+            <input
+              required
+              type="text"
+              placeholder="Nombre y apellidos"
+              value={customer.nombre}
+              onChange={(e) => handleChange("nombre", e.target.value)}
+              className="w-full px-4 py-3 text-sm border border-[var(--color-border)] bg-white focus:outline-none focus:border-[var(--color-accent)]"
+            />
+            <input
+              required
+              type="email"
+              placeholder="Email"
+              value={customer.email}
+              onChange={(e) => handleChange("email", e.target.value)}
+              className="w-full px-4 py-3 text-sm border border-[var(--color-border)] bg-white focus:outline-none focus:border-[var(--color-accent)]"
+            />
+            <input
+              type="tel"
+              placeholder="Teléfono (opcional)"
+              value={customer.telefono}
+              onChange={(e) => handleChange("telefono", e.target.value)}
+              className="w-full px-4 py-3 text-sm border border-[var(--color-border)] bg-white focus:outline-none focus:border-[var(--color-accent)]"
+            />
+            <input
+              required
+              type="text"
+              placeholder="Dirección"
+              value={customer.direccion}
+              onChange={(e) => handleChange("direccion", e.target.value)}
+              className="w-full px-4 py-3 text-sm border border-[var(--color-border)] bg-white focus:outline-none focus:border-[var(--color-accent)]"
+            />
+            <div className="grid grid-cols-2 gap-4">
+              <input
+                required
+                type="text"
+                placeholder="Código postal"
+                value={customer.cp}
+                onChange={(e) => handleChange("cp", e.target.value)}
+                className="w-full px-4 py-3 text-sm border border-[var(--color-border)] bg-white focus:outline-none focus:border-[var(--color-accent)]"
+              />
+              <input
+                required
+                type="text"
+                placeholder="Ciudad"
+                value={customer.ciudad}
+                onChange={(e) => handleChange("ciudad", e.target.value)}
+                className="w-full px-4 py-3 text-sm border border-[var(--color-border)] bg-white focus:outline-none focus:border-[var(--color-accent)]"
+              />
+            </div>
+            <input
+              required
+              type="text"
+              placeholder="Provincia"
+              value={customer.provincia}
+              onChange={(e) => handleChange("provincia", e.target.value)}
+              className="w-full px-4 py-3 text-sm border border-[var(--color-border)] bg-white focus:outline-none focus:border-[var(--color-accent)]"
+            />
+
+            {error && (
+              <p className="text-sm text-red-600">{error}</p>
+            )}
+
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full flex items-center justify-center gap-3 bg-[var(--color-dark)] text-[var(--color-crema)] px-8 py-4 text-sm font-medium hover:bg-[var(--color-accent)] transition-colors disabled:opacity-50"
+            >
+              {loading ? "Procesando..." : (
+                <>
+                  Confirmar pedido
+                  <ArrowRight className="w-4 h-4" />
+                </>
+              )}
+            </button>
+            <p className="text-center text-xs font-light text-[var(--color-text-muted)]">
+              Te enviaremos los datos para el pago por transferencia bancaria
+            </p>
+          </form>
+        )}
       </div>
     </div>
   );

@@ -75,7 +75,7 @@ export default function PoliticaPrivacidadPage() {
               <ul className="mt-2 space-y-1 list-disc pl-5">
                 <li>Datos identificativos: nombre y apellidos</li>
                 <li>Datos de contacto: dirección postal, email y teléfono</li>
-                <li>Datos económicos: información de pago (procesada por Stripe, nunca almacenamos datos de tarjeta)</li>
+                <li>Datos económicos: referencia e importe del pedido para identificar tu transferencia bancaria</li>
                 <li>Datos de navegación: cookies (ver Política de Cookies)</li>
               </ul>
             </section>
@@ -88,7 +88,6 @@ export default function PoliticaPrivacidadPage() {
                 Tus datos pueden ser comunicados a:
               </p>
               <ul className="mt-2 space-y-1 list-disc pl-5">
-                <li><strong>Stripe, Inc.</strong> — pasarela de pago. Datos protegidos por el acuerdo de transferencia estándar UE–EE.UU.</li>
                 <li><strong>Transportistas</strong> — para la entrega del pedido</li>
                 <li><strong>Administraciones públicas</strong> — cuando lo exija la ley</li>
               </ul>

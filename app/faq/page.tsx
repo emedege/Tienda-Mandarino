@@ -60,11 +60,11 @@ const faqs = [
     items: [
       {
         q: "¿Qué formas de pago aceptáis?",
-        a: "Aceptamos pago con tarjeta (Visa, Mastercard, Amex) a través de Stripe, y transferencia bancaria.",
+        a: "Aceptamos pago por transferencia bancaria. Al confirmar el pedido recibirás por email el IBAN y la referencia a incluir en el concepto.",
       },
       {
         q: "¿Es seguro pagar en vuestra web?",
-        a: "Sí. El pago con tarjeta se procesa a través de Stripe, con cifrado SSL. Nunca almacenamos datos de tu tarjeta.",
+        a: "Sí. No procesamos ni almacenamos ningún dato bancario en la web: el pago se hace directamente desde tu banco mediante transferencia.",
       },
     ],
   },

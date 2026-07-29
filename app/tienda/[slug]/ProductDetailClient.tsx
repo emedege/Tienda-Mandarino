@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, useRouter } from "next/navigation";
 import { useCart } from "@/contexts/CartContext";
 import { getProductBySlug } from "@/lib/sanity/queries";
 import { urlFor } from "@/lib/sanity/client";
@@ -17,6 +17,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
   const [added, setAdded] = useState(false);
   const [buyingNow, setBuyingNow] = useState(false);
   const { addItem } = useCart();
+  const router = useRouter();
 
   useEffect(() => {
     getProductBySlug(slug).then((p) => {
@@ -59,30 +60,21 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
     setTimeout(() => setAdded(false), 2500);
   };
 
-  const handleBuyNow = async () => {
+  const handleBuyNow = () => {
     setBuyingNow(true);
-    try {
-      trackEvent("begin_checkout", {
-        currency: "EUR",
-        value: product.price,
-        items: [{ item_id: product._id, item_name: product.name, price: product.price, item_category: product.category?.title }],
-      });
-      const res = await fetch("/api/checkout", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          items: [{ id: product._id, name: product.name, price: product.price, image: images[0] ? imageUrl(images[0]) : "" }],
-        }),
-      });
-      const { url, error } = await res.json();
-      if (error) throw new Error(error);
-      if (url) window.location.href = url;
-    } catch (err) {
-      console.error(err);
-      alert("Ha ocurrido un error. Inténtalo de nuevo.");
-    } finally {
-      setBuyingNow(false);
-    }
+    trackEvent("begin_checkout", {
+      currency: "EUR",
+      value: product.price,
+      items: [{ item_id: product._id, item_name: product.name, price: product.price, item_category: product.category?.title }],
+    });
+    addItem({
+      id: product._id,
+      name: product.name,
+      price: product.price,
+      image: images[0] ? imageUrl(images[0]) : "/placeholder-product.jpg",
+      slug: product.slug.current,
+    });
+    router.push("/carrito");
   };
 
   const structuredData = {
@@ -289,7 +281,7 @@ export default function ProductDetailClient({ slug }: { slug: string }) {
                     14 días de devolución
                   </Link>
                 </p>
-                <p>Pago seguro con Stripe</p>
+                <p>Pago por transferencia bancaria</p>
               </div>
             </div>
           </div>
