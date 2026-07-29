@@ -95,9 +95,9 @@ export default function SobreMiPage() {
                 { number: "Único", label: "Cada pieza" },
                 { number: "Madrid", label: "España" },
               ].map(({ number, label }, i) => (
-                <div key={label} className={`p-8 text-center ${i < 2 ? "border-r border-[var(--color-border)]" : ""}`}>
-                  <p className="text-2xl font-extralight text-[var(--color-accent)] mb-1">{number}</p>
-                  <p className="text-xs font-medium text-[var(--color-text-muted)]">{label}</p>
+                <div key={label} className={`p-4 sm:p-8 text-center ${i < 2 ? "border-r border-[var(--color-border)]" : ""}`}>
+                  <p className="text-lg sm:text-2xl font-extralight text-[var(--color-accent)] mb-1">{number}</p>
+                  <p className="text-[11px] sm:text-xs font-medium text-[var(--color-text-muted)]">{label}</p>
                 </div>
               ))}
             </div>

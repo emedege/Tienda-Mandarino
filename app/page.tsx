@@ -79,13 +79,13 @@ export default async function HomePage() {
         {/* ── STRIP ── */}
         <section className="bg-[var(--color-dark)] text-[var(--color-crema)] py-4">
           <div className="max-w-7xl mx-auto px-6 lg:px-12">
-            <div className="flex flex-wrap items-center justify-center gap-x-12 gap-y-2 text-[11px] font-medium tracking-[0.14em]">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-y-2 sm:gap-x-12 text-[11px] font-medium tracking-[0.14em] text-center">
               <span>Envío a España</span>
-              <span className="text-[var(--color-accent)]">·</span>
+              <span className="hidden sm:inline text-[var(--color-accent)]">·</span>
               <span>Piezas únicas e irrepetibles</span>
-              <span className="text-[var(--color-accent)]">·</span>
+              <span className="hidden sm:inline text-[var(--color-accent)]">·</span>
               <span>Materiales de calidad</span>
-              <span className="text-[var(--color-accent)]">·</span>
+              <span className="hidden sm:inline text-[var(--color-accent)]">·</span>
               <span>14 días de devolución</span>
             </div>
           </div>
